@@ -1,0 +1,40 @@
+# Python
+*.py[cod]
+*.egg*
+.mypy_cache
+
+# Temporary files
+*.swp
+*.swo
+*.tmp
+*~
+
+# Tags file
+/tags
+
+# Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+*.db
+
+# OS generated files
+.DS_Store*
+thumbs.db
+Thumbs.db
+Desktop.ini
+
+# Docker build, ignore requirements copied by make command
+build/backend/requirements
+.vimcache
+.vscode
