@@ -1,0 +1,12 @@
+version: '3'
+services:
+  backend:
+    network_mode: "bridge"
+    container_name: locust_backend
+    image: locust_backend_image
+    ports:
+      - "8089:8089"
+    volumes:
+      - ${WINDIR}.:/app
+    stdin_open: true
+    command: /opt/entry.sh
