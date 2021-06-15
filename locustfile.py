@@ -1,21 +1,9 @@
-from locust import HttpLocust, TaskSet
+from locust import User, HttpUser, TaskSet, task
+from locust.contrib.fasthttp import FastHttpUser
 
-def login(l):
-    l.client.get("/?s=search+query+here")
+class SpamBot(FastHttpUser):
 
-def index(l):
-    l.client.get("/some/other/page")
+    @task
+    def my_task(self):
+        self.client.get('http://yourwebsitehere.com')
 
-def profile(l):
-    l.client.get("/")
-
-class UserBehavior(TaskSet):
-    tasks = {index: 2, profile: 1}
-
-    def on_start(self):
-        login(self)
-
-class WebsiteUser(HttpLocust):
-    task_set = UserBehavior
-    min_wait = 1
-    max_wait = 2
